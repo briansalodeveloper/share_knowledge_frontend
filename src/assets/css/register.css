@@ -1,0 +1,15 @@
+.card-registration .select-input.form-control[readonly]:not([disabled]) {
+font-size: 1rem;
+line-height: 2.15;
+padding-left: .75em;
+padding-right: .75em; color:#1fafa6;
+}
+.card-registration .select-arrow {
+top: 13px;
+}
+/* override bootstrap */
+.btn-warning {
+    color: white;
+    border-color:#1fafa6;
+    background-color:#1fafa6;
+}
