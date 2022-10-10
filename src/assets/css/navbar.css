@@ -1,210 +1,66 @@
-.navbar a {
-  text-decoration: none;
+.nav-bar {
+  background-color: #f1f1f1;
 }
 
-.material-symbols-outlined {
-  font-variation-settings:
-  'FILL' 0,
-  'wght' 300,
-  'GRAD' 200,
-  'opsz' 48
-}
-
-.navbar123{
-  height: 50px;
+.navbar-content {
   display:flex;
-  justify-content: flex-start;
-  align-items: center;
-  background-color: black;
-
-}
-.navbar1 ol{
-  display: flex;
-margin: 0;
-padding: 0;
-}
-.navbar1 li{
-  list-style: none;
-}
-.navbar1 li a{
-  color:white;
-  padding: 1rem;
-  display:block;
-}
-
-.navbar1 .links li:hover{
-background-color: white;
-}
-
-
-
-
-
-.main-navbar {
-  display:flex;
-  /* height: 50px;
-  background-color: rgb(255 255 255);
-  width: 100%;
-  display: flex;
-  justify-content: flex-start; */
-
-  /* height: 50px;
-  width: 100%;
-  background-color: rgb(255 255 255);
-  justify-content: flex-start; */
+  max-width: 1264px;
+  margin-left: auto;
+  margin-right: auto;  
   height: 50px;
   justify-content: flex-start;
   align-items: center;
-  background-color: rgb(255 255 255);
-  
-
 }
-.main-navbar .logo{
-  /* width: 164px; */
+.navbar-content .logo{
   min-width: 164px;
-
 }
 
-.main-navbar .search-box {
+.navbar-content .search-box {
   width: 100%;
   border-radius: 20px;
   display: flex;
+  background: white;
   border-style: ridge;
 }
 
-.main-navbar .search-box input{
+.navbar-content .search-box .fa-search{
+  padding-left:5px; 
+  padding-top:5px; 
+}
+
+.navbar-content .search-box input{
   margin-left: 5px;
   width:100%;
   outline: none; 
-  background: transparent; 
+  background: none; 
   border:0;
 }
 
-.main-navbar .icons{
-  /* margin-left: 10px;
-  width: 120px; */
+.navbar-content .icons{
   min-width: 164px;
   display:flex; 
   justify-content: space-between;
   padding:20px;
-
 }
 
-.navbar .icons span:hover{
-background-color: black;
-
+.icons i {
+  cursor:pointer;
 }
 
-/* .logo {
-  font-weight: bold;
-  font-size: 18px;
-  display: flex;
-  align-items: center;
+.navbar-content .notification {
+  position:relative;
 }
 
-.logo a {
-  color: #09c372;
-} */
-
-ul {
-  list-style: none;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
-
-ul a {
-  color: red;
-}
-
-ul li {
-  padding: 5px;
-  margin-left: 10px;
-}
-
-ul li:hover {
-  transform: scale(1.1);
-  transition: 0.3s;
-}
-
-#login,
-#signup {
-  border-radius: 5px;
-  padding: 5px 8px;
-}
-
-#login {
-  border: 1px solid #498afb;
-}
-
-#signup {
-  border: 1px solid #ff3860;
-}
-
-#signup a {
-  color: #ff3860;
-}
-
-#login a {
-  color: #498afb;
-}
-
-#hamburger-icon {
-  margin: auto 0;
-  display: none;
-  cursor: pointer;
-}
-
-#hamburger-icon div {
-  width: 35px;
-  height: 3px;
-  background-color: black;
-  margin: 6px 0;
-  transition: 0.4s;
-}
-
-.open .bar1 {
-  -webkit-transform: rotate(-45deg) translate(-6px, 6px);
-  transform: rotate(-45deg) translate(-6px, 6px);
-}
-
-.open .bar2 {
-  opacity: 0;
-}
-
-.open .bar3 {
-  -webkit-transform: rotate(45deg) translate(-6px, -8px);
-  transform: rotate(45deg) translate(-6px, -8px);
-}
-
-.open .mobile-menu {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-}
-
-.mobile-menu {
-  display: none;
+.navbar-content .number-of-notification {
   position: absolute;
-  top: 50px;
-  left: 0;
-  height: calc(100vh - 50px);
-  width: 100%;
-}
-
-.mobile-menu li {
-  margin-bottom: 10px;
-}
-
-@media only screen and (max-width: 600px) {
-  header nav {
-    display: none;
-  }
-
-  #hamburger-icon {
-    display: block;
-  }
+  top: -5px;
+  width:16px;
+  height:18px;
+  border-radius:50%;
+  text-align:center;
+  right: -5px;
+  font-size:12px;
+  background: red;
+  color: white;
 }
 

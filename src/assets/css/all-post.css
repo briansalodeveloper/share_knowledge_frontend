@@ -1,0 +1,55 @@
+
+.allpost {
+    display:flex;
+    margin-top: 30px;
+    padding:15px;
+    background-color: #f1f1f1;
+    border-radius: 20px;
+    display:flex;
+}
+
+.allpost .image {
+    padding-right: 15px;
+}
+
+.allpost .image img{
+    width:50px;
+    height:50px;
+}
+
+.allpost .content .info-header{
+    display:flex;
+    justify-content: space-between;
+}
+
+.allpost .content .info-header .status{
+    display:flex;
+}
+
+.allpost .content .info-header .status div :not(.fa-check-circle){
+    margin-right:20px;
+}
+
+.allpost .content .info-header .title{
+    display: inline-block;
+    width: 280px;
+    white-space: nowrap;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+}
+
+.allpost .content .info-content {
+    text-overflow: ellipsis;
+    white-space: normal;
+    line-height: 1.5em;
+    height: 3em;
+    overflow: hidden;
+}
+
+.allpost .content .info-footer {
+    margin-top: 10px;
+    display:flex;
+    justify-content: space-between;
+}
+
+

@@ -11,6 +11,7 @@ const router = createRouter({
         { path: '/register', name:'register', component: Register },
         { path: '/', name:'home', component: Home },
         { path: '/callback/facebook', name:'callback_facebook', component: Facebook },
+        { path: '/create-post', name:'create_post', component: Home },
       ]
   })
 

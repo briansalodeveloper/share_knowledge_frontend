@@ -1,10 +1,19 @@
 <script setup>
 import Navbar from './layouts/Navbar.vue'
+import SidebarLeft from './layouts/SidebarLeft.vue'
+import SidebarRight from './layouts/SidebarRight.vue'
+import BodyContent from './layouts/Body.vue'
 import '/src/assets/css/container.css'
 </script>
 <template>
-    <div class="container">
+    <div class="parent-container">
         <nav-bar></nav-bar>
+        <div class="child-container">
+            <sidebar-left></sidebar-left>
+            <body-content></body-content>
+            <sidebar-right></sidebar-right>
+        </div>
+
     </div>
 
 </template>
@@ -12,6 +21,9 @@ import '/src/assets/css/container.css'
 export default {
     components:{       
         'nav-bar': Navbar,
+        'sidebar-left': SidebarLeft,
+        'sidebar-right': SidebarRight,
+        'body-content': BodyContent,
     },
 }
 </script>

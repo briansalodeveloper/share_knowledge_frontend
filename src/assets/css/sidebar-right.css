@@ -1,0 +1,30 @@
+
+
+.rightSidebar{
+    min-width: 164px;
+}
+
+.rightSidebar > ul {
+  padding-inline-start: 5px;
+  list-style: none;
+}
+
+.rightSidebar > ul .active{
+  background-color:#f1f1f1;
+  border-radius: 15px;
+}
+
+.rightSidebar > ul li {
+  margin-top:10px;
+  padding-left:20px;
+  width: 100%;
+}
+
+.rightSidebar > ul li:hover {
+  transform: scale(1.1);
+  transition: 0.3s;
+  width: 100%;
+  border-radius: 15px;
+  background-color: #f1f1f1;
+}
+

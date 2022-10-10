@@ -2,18 +2,24 @@
 import '/src/assets/css/navbar.css'
 </script>
 <template>
-    <div class="main-navbar">
+<div class="nav-bar">
+    <div class="navbar-content">
         <div class="logo">
-            stackoverflow
+            ShareKnowledge
         </div>
         <div class="search-box" style="">
-            <span class="material-symbols-outlined" style="padding-left:5px;">search</span>
+            <i class="fas fa-search"></i>
             <input type="text" placeholder="Search...">
         </div>
         <div class="icons">
-            <div><span class="material-symbols-outlined" >account_circle</span></div>
-            <div><span class="material-symbols-outlined">notifications</span></div>
-            <div><span class="material-symbols-outlined">military_tech</span></div>
+            <div><i class="far fa-user fa-lg"></i></div>
+            <div class="notification">
+                <i class="far fa-bell fa-lg">
+                    <span class="number-of-notification">4</span>
+                </i>
+            </div>
+            <div><i class="fas fa-trophy fa-lg"></i></div>
         </div>
     </div>
+</div>
 </template>
