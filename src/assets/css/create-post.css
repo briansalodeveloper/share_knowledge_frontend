@@ -36,12 +36,21 @@
     padding-top:10px;
   }
 
+.create-post .footer .tags{
+    width:55%;
+}
+
 .create-post .footer .buttons {
     display:flex;
 }
 
 .create-post .footer .buttons button{
     margin-left:5px;
+}
+
+.create-post .footer .buttons .closed{
+    height: 35px;
+    border: 1px solid black;   
 }
 
 .create-post .footer .buttons .post {
