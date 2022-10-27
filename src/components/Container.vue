@@ -1,7 +1,6 @@
 <script setup>
 import Navbar from './layouts/Navbar.vue'
 import SidebarLeft from './layouts/SidebarLeft.vue'
-import SidebarRight from './layouts/SidebarRight.vue'
 import BodyContent from './layouts/Body.vue'
 import '/src/assets/css/container.css'
 </script>
@@ -11,7 +10,6 @@ import '/src/assets/css/container.css'
         <div class="child-container">
             <sidebar-left></sidebar-left>
             <body-content></body-content>
-            <sidebar-right></sidebar-right>
         </div>
 
     </div>
@@ -22,7 +20,6 @@ export default {
     components:{       
         'nav-bar': Navbar,
         'sidebar-left': SidebarLeft,
-        'sidebar-right': SidebarRight,
         'body-content': BodyContent,
     },
 }

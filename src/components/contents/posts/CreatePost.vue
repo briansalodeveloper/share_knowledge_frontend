@@ -1,6 +1,5 @@
 <script setup>
 import '/src/assets/css/create-post.css'
-import axios from 'axios'
 </script>
 
 <template>
@@ -35,6 +34,8 @@ import axios from 'axios'
 
 <script>
 import VueMultiselect from 'vue-multiselect'
+import postService from '@/services/PostService.js'
+import tagService from '@/services/TagService.js'
 
 export default {
     components: { VueMultiselect },
@@ -50,12 +51,10 @@ export default {
     },
     methods: {
         getTags() {
-            const token = localStorage.getItem('tokenId');
-            axios.get('http://127.0.0.1:8000/api/all_tags', {params:{token:token}}).then((response) => {
-                this.tagsOption = response.data;
-            }).catch(error => {
-
-            });
+            tagService.getAllTags(localStorage.getItem('tokenId'))
+                .then((response) => {
+                    this.tagsOption = response.data;
+                })
         },
         submit(){
             const getIdOfSelectedTags = this.fields.tagsSelected.map((item) => {
@@ -63,15 +62,12 @@ export default {
             })
             //i override the fields.tagselected it will now return only an i.d.
             this.fields.tagsSelected = getIdOfSelectedTags;
-            this.fields.token = this.$store.state.token;
-            axios.post('http://127.0.0.1:8000/api/create_post', this.fields).then((response) => {
-                this.$toast.success("Post Created Successfully.");
-                this.$router.push({ name: 'home' });
-            }).catch(error => {
-                if(error.response.status == 401) {
-                    this.$router.push({ name: 'login' });
-                }
-            });
+            this.fields.token = this.$store.state.authStore.token;
+            postService.createPost(this.fields)
+                .then((response) => {
+                    this.$toast.success("Post Created Successfully.");
+                    this.$router.push({ name: 'home' });
+                });
         },
     }
 }

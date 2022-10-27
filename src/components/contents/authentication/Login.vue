@@ -1,15 +1,10 @@
-<script setup>
-import '/src/assets/login/css/style.css'
-import axios from 'axios'
-</script>
-
 <template>
 	<section class="ftco-section">
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-md-12 col-lg-10">
 					<div class="wrap d-md-flex">
-						<div class="img" style="background-image: url(/src/assets/login/images/bg-2.jpg);"></div>
+						<div class="img" style="background-image:;"></div>
 						<div class="login-wrap p-4 p-md-5">
 			      	        <div class="d-flex">
 			      		        <div class="w-100">
@@ -66,6 +61,8 @@ import axios from 'axios'
 	</section>
 </template>
 <script>
+import authService from '@/services/AuthService.js'
+
 export default {
     data() {
         return {
@@ -76,23 +73,25 @@ export default {
     methods: {
         submit(){
             this.errors = {};
-            axios.post('http://127.0.0.1:8000/api/login', this.fields).then((response) => {
-                let tokenId = response.data.token;
-                this.$store.commit('getToken',{tokenId});
-                this.$router.push({ name: 'home' });
-            }).catch(error => {
-                if(error.response.status == 401) {
-                    this.errors = error.response.data;
-                }
-                if (error.response.status == 422) {
-                    this.errors = error.response.data.errors;
-                }
-            });
+            authService.login(this.fields)
+                .then((response) => {           
+                    this.$store.commit('auth_setToken', response.data.token);
+                    this.$router.push(this.$route.query.from || { name: 'home' });
+                })
+                .catch((error) => {
+                    if(error.response.status == 401) {
+                        this.errors = error.response.data;
+                    }
+                    if (error.response.status == 422) {
+                        this.errors = error.response.data.errors;
+                    }
+                });
         },
         loginFacebook(){
-            axios.get('http://127.0.0.1:8000/api/facebook', this.fields).then((response) => {
-                window.location.href = response.data.url;
-            })
+            authService.facebookLogin(this.fields)
+                .then((response) => {
+                    window.location.href = response.data.url;
+                })
         },
 
   },

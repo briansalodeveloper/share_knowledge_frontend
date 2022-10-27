@@ -1,9 +1,9 @@
 import {createRouter, createWebHistory} from 'vue-router'
-import Login from './components/contents/authentication/Login.vue'
-import Register from './components/contents/authentication/Register.vue'
-import Container from './components/Container.vue'
-import Facebook from './components/contents/authFacebook/Facebook.vue'
-import store from './vuex.js';
+import Login from '@/components/contents/authentication/Login.vue'
+import Register from '@/components/contents/authentication/Register.vue'
+import Container from '@/components/Container.vue'
+import Facebook from '@/components/contents/authentication/LoginFacebook.vue'
+import checkToken from '@/middleware/CheckToken.js';
 
 const router = createRouter({
     history: createWebHistory(),
@@ -18,16 +18,17 @@ const router = createRouter({
 router.beforeEach(async (to, from, next) => {
 
     if(to.meta.requiresAuth) {
-        await store.dispatch('checkTokenIfStillAuth')
-        if(store.state.token) {
+        let tokenStillExist = await checkToken();
+
+        if(tokenStillExist) {
             next();
         }else{
-            next({name:'login'});
+            const previousUrl = to.fullPath;
+            next({ name: 'login', query: { from: previousUrl } });
         } 
     }else{
         next();
     }
-
     
 });
 export default router;
